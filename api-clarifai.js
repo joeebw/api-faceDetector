@@ -22,7 +22,7 @@ const clarifaiRequest = (req, resp) => {
             {
                 "data": {
                     "image": {
-                        "url": imgUrl
+                        "url": IMAGE_URL
                     }
                 }
             }
@@ -39,10 +39,12 @@ const clarifaiRequest = (req, resp) => {
         body: raw
     };
 
+    console.log("Estoy leyendo el codigo", imgUrl);
+
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
     .then(response => response.json())
     .then(result => resp.json(result))
-    .catch(error => console.log("There is an error"))
+    .catch(error => console.log("There is an error", error))
 
     
 };
