@@ -39,6 +39,8 @@ const clarifaiRequest = (req, resp) => {
         body: raw
     };
 
+    resp.send('im working')
+
     console.log("Estoy leyendo el codigo", imgUrl);
 
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
