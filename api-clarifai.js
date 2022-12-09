@@ -5,8 +5,8 @@ const clarifaiRequest = (req, resp) => {
     if(!imgUrl) return;
 
     //API clarifi configuration
-    const USER_ID = process.env.TOKEN_ID;
-    const PAT = process.env.PATH_KEY;
+    const USER_ID = `${process.env.TOKEN_ID}`;
+    const PAT = `${process.env.PATH_KEY}`;
     const APP_ID = 'my-first-application';
     const MODEL_ID = 'face-detection';
     const MODEL_VERSION_ID = '6dc7e46bc9124c5c8824be4822abe105';    
@@ -39,9 +39,7 @@ const clarifaiRequest = (req, resp) => {
         body: raw
     };
 
-    resp.send('im working')
 
-    console.log("Estoy leyendo el codigo", imgUrl);
 
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
     .then(response => response.json())

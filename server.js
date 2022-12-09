@@ -17,10 +17,10 @@ app.use(cors());
 const db = knex({
     client: 'pg',
     connection: {
-      host : process.env.HOSTNAME,
+      host : `${process.env.HOSTNAME}`,
       port : 5432,
-      user : process.env.TOKEN_ID,
-      password : process.env.TOKEN_PASSWORD,
+      user : `${process.env.TOKEN_ID}`,
+      password : `${process.env.TOKEN_PASSWORD}`,
       database : 'faceai'
     }
 });
