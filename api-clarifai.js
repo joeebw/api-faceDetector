@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 const clarifaiRequest = (req, resp) => {
 
     const {imgUrl} = req.body; 
@@ -38,7 +40,7 @@ const clarifaiRequest = (req, resp) => {
         },
         body: raw
     };
-
+  
 
 
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
